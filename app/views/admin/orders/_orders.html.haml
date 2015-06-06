@@ -1,0 +1,34 @@
+.table-responsive.admin-table
+  %table.table.table-bordered
+    %thead
+      %tr
+        %td.text-center
+          User
+        %td.text-center
+          Date
+        %td.text-center
+          Amount
+        %td.text-center
+          Order
+        %td.text-center
+    %tbody
+      - @orders.each do |order|
+        %tr
+          %td.text-center
+            - if order.user
+              = link_to order.user.name, user_path(order.user)
+            - else
+              Guese            
+          %td.text-center
+            = display_date(order.created_at)
+          %td.text-center
+            = display_price(order.total_bill)
+          %td.text-center
+            = link_to 'Show Order', edit_admin_order_path(order) 
+          %td.text-center
+            - if order.status == 'sent'
+              = link_to edit_admin_order_path(order) , class: 'btn btn-sent tool-tip' do
+                Sent
+            - else
+              = link_to edit_admin_order_path(order) , class: 'btn btn-send tool-tip' do
+                Send

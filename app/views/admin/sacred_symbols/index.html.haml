@@ -1,0 +1,21 @@
+.row 
+  .col-md-10   
+    = render 'form'
+.admin-table-title  
+  All Symbols       
+- @sacred_symbols.each do |sacred_symbol|
+  .product-col
+    .row
+      .col-sm-3
+        %img.img-responsive{:src => sacred_symbol.image}
+      .col-sm-9
+        .caption
+        %h4
+          = link_to sacred_symbol.name, sacred_symbol_path(sacred_symbol)
+        .description
+          = sacred_symbol.description     
+        .bag-button.button-group
+          = link_to 'Update',edit_admin_sacred_symbol_path(sacred_symbol), class: 'btn btn-update'
+          = link_to admin_sacred_symbol_path(sacred_symbol), method: :delete, class: 'btn btn-remove' do
+            Delete Symbol
+            %i.fa.fa-remove 

@@ -1,0 +1,27 @@
+.row
+  / Primary Content Starts
+  .col-md-9
+    / Main Heading Starts
+    %h2.main-heading2
+      = @category.name
+    / Main Heading Ends
+    / Category Intro Content Starts
+    .row.cat-intro
+      .col-sm-9.cat-body
+        = @category.description
+    / Category Intro Content Ends
+    / Product Filter Starts
+    .products-list
+      %h2.product-head
+        #{@category.name} Pendants
+      / Product Filter Ends
+      / Product Grid Display Starts
+      .row
+        - @products.each do |product|
+          .col-sm-3.col-xs-6.product-responsive-padding
+            = render 'products/product', :product => product
+      / Product Grid Display Ends
+  / Primary Content Ends
+  .col-md-3
+    = render 'shared/sidebar'
+/ Main Container Ends

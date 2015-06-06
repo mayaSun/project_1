@@ -1,0 +1,29 @@
+.row
+  .col-sm-9
+    = render 'form'
+.admin-table-title  
+  All Categories
+- @categories.each do |category|
+  .panel.panel-smart
+    .panel-heading
+      %h3.panel-title
+        Caterory: 
+        = link_to category.name, admin_category_path(category)   
+    %h5
+      Number of Products in this caterory: #{category.products.count}
+    .hidden-xs  
+      .row  
+        - category.products.each do |product|
+          .col-sm-2               
+            %img.img-responsive.admin-category-product-image{:src => product.image}       
+    .bag-button.button-group
+      = link_to 'Update Category',edit_admin_category_path(category), class: 'btn btn-update'
+      - if category.products.count <= 0
+        = link_to admin_category_path(category), method: :delete, class: 'btn btn-remove' do
+          Delete
+          %i.fa.fa-remove 
+      -else
+        %h5
+          * Category can not be delete if there are product in it.
+
+          

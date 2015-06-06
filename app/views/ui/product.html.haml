@@ -1,0 +1,225 @@
+/ Main Container Starts
+#main-container.container
+  .row
+    / Primary Content Starts
+    .col-md-9
+      / Breadcrumb Starts
+      %ol.breadcrumb
+        %li
+          %a{:href => "index.html"} Home
+        %li
+          %a{:href => "category-list.html"} Category
+        %li.active Product
+      / Breadcrumb Ends
+      / Product Info Starts
+      .row.product-info
+        / Left Starts
+        .col-sm-5.images-block
+          %p
+            %img.img-responsive.thumbnail{:alt => "Image", :src => "/images/product-images/1.jpg"}/
+        / Left Ends
+        / Right Starts
+        .col-sm-7.product-details
+          / Product Name Starts
+          %h2 Simply Organic seeds
+          / Product Name Ends
+          %hr/
+          / Manufacturer Starts
+          %ul.list-unstyled.manufacturer
+            %li
+              %span Brand:
+              Indian spices
+            %li
+              %span Symbol:
+              Flower Of Life
+            %li
+              %span Availability:
+              %strong.label.label-success In Stock
+          / Manufacturer Ends
+          %hr/
+          / Price Starts
+          .price
+            %span.price-head Price :
+            %span.price-new $199.50
+          / Price Ends
+          %hr/
+          / Available Options Starts
+          .options
+            .form-group
+              %label.control-label.text-uppercase{:for => "input-quantity"} Qty:
+              %input#input-quantity.form-control{:name => "quantity", :size => "2", :type => "text", :value => "1"}/
+            .bag-button.button-group
+              %button.btn.btn-wishlist{:title => "Wishlist", :type => "button"}
+                %i.fa.fa-heart
+              %button.btn.btn-compare{:title => "Compare", :type => "button"}
+                %i.fa.fa-bar-chart-o
+              %button.btn.btn-bag{:type => "button"}
+                Add to bag
+                %i.fa.fa-shopping-bag
+          / Available Options Ends
+          %hr/
+        / Right Ends
+      / product Info Ends
+      / Product Description Starts
+      .product-info-box
+        %h4.heading Description
+        .content.panel-smart
+          %p
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          %p
+            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      / Product Description Ends
+      / Additional Information Starts
+      .product-info-box
+        %h4.heading Additional Information
+        .content.panel-smart
+          %p
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      / Additional Information Ends
+      / Related Products Starts
+      .product-info-box
+        %h4.heading Related Products
+        / Products Row Starts
+        .row
+          / Product #1 Starts
+          .col-md-4.col-sm-6
+            .product-col
+              .image
+                %img.img-responsive{:alt => "product", :src => "/images/product-images/2.jpg"}/
+              .caption
+                %h4
+                  %a{:href => "product.html"} Simply Organic Seeds
+                .description
+                  We are so lucky living in such a wonderful time. Our almost unlimited ...
+                .price
+                  %span.price-new $199.50
+                .bag-button.button-group
+                  %button.btn.btn-wishlist{:title => "Wishlist", :type => "button"}
+                    %i.fa.fa-heart
+                  %button.btn.btn-compare{:title => "Compare", :type => "button"}
+                    %i.fa.fa-bar-chart-o
+                  %button.btn.btn-bag{:type => "button"}
+                    Add to bag
+                    %i.fa.fa-shopping-bag
+          / Product #1 Ends
+          / Product #2 Starts
+          .col-md-4.col-sm-6
+            .product-col
+              .image
+                %img.img-responsive{:alt => "product", :src => "/images/product-images/3.jpg"}/
+              .caption
+                %h4
+                  %a{:href => "product.html"} Simply Organic Seeds
+                .description
+                  We are so lucky living in such a wonderful time. Our almost unlimited ...
+                .price
+                  %span.price-new $199.50
+                .bag-button.button-group
+                  %button.btn.btn-wishlist{:title => "Wishlist", :type => "button"}
+                    %i.fa.fa-heart
+                  %button.btn.btn-compare{:title => "Compare", :type => "button"}
+                    %i.fa.fa-bar-chart-o
+                  %button.btn.btn-bag{:type => "button"}
+                    Add to bag
+                    %i.fa.fa-shopping-bag
+          / Product #2 Ends
+          / Product #3 Starts
+          .col-md-4.col-sm-6
+            .product-col
+              .image
+                %img.img-responsive{:alt => "product", :src => "/images/product-images/4.jpg"}/
+              .caption
+                %h4
+                  %a{:href => "product.html"} Simply Organic Seeds
+                .description
+                  We are so lucky living in such a wonderful time. Our almost unlimited ...
+                .price
+                  %span.price-new $199.50
+                .bag-button.button-group
+                  %button.btn.btn-wishlist{:title => "Wishlist", :type => "button"}
+                    %i.fa.fa-heart
+                  %button.btn.btn-compare{:title => "Compare", :type => "button"}
+                    %i.fa.fa-bar-chart-o
+                  %button.btn.btn-bag{:type => "button"}
+                    Add to bag
+                    %i.fa.fa-shopping-bag
+          / Product #3 Ends
+        / Products Row Ends
+      / Related Products Ends
+    / Primary Content Ends
+    / Sidebar Starts
+    .col-md-3
+      / Categories Links Starts
+      %h3.side-heading symbols
+      .list-group
+        %a.list-group-item{:href => "category-grid.html"}
+          %i.fa.fa-chevron-right
+          Spices & Herbs
+        %a.list-group-item{:href => "category-grid.html"}
+          %i.fa.fa-chevron-right
+          Chili Powder
+        %a.list-group-item{:href => "category-grid.html"}
+          %i.fa.fa-chevron-right
+          Herb Blends
+        %a.list-group-item{:href => "category-grid.html"}
+          %i.fa.fa-chevron-right
+          Seasonings
+        %a.list-group-item{:href => "category-grid.html"}
+          %i.fa.fa-chevron-right
+          Salt Free Spices
+      / Categories Links Ends
+      / Shopping Options Starts
+      %h3.side-heading Shopping Options
+      .list-group
+        .list-group-item
+          Brands
+        .list-group-item
+          .filter-group
+            %label.checkbox
+              %input{:checked => "checked", :name => "filter1", :type => "checkbox", :value => "br1"}/
+              Brand Name 1
+            %label.checkbox
+              %input{:name => "filter2", :type => "checkbox", :value => "br2"}/
+              Brand Name 2
+            %label.checkbox
+              %input{:name => "filter2", :type => "checkbox", :value => "br2"}/
+              Brand Name 3
+        .list-group-item
+          Manufacturer
+        .list-group-item
+          .filter-group
+            %label.radio
+              %input{:checked => "checked", :name => "filter-manuf", :type => "radio", :value => "mr1"}/
+              Manufacturer Name 1
+            %label.radio
+              %input{:name => "filter-manuf", :type => "radio", :value => "mr2"}/
+              Manufacturer Name 2
+            %label.radio
+              %input{:name => "filter-manuf", :type => "radio", :value => "mr3"}/
+              Manufacturer Name 3
+        .list-group-item
+          %button.btn.btn-warning{:type => "button"} Filter
+      / Shopping Options Ends
+      / Bestsellers Links Starts
+      %h3.side-heading Bestsellers
+      .product-col
+        .image
+          %img.img-responsive{:alt => "product", :src => "/images/product-images/1.jpg"}/
+        .caption
+          %h4
+            %a{:href => "product-full.html"} Simply Organic Seeds
+          .description
+            We are so lucky living in such a wonderful time. Our almost unlimited ...
+          .price
+            %span.price-new $199.50
+          .bag-button.button-group
+            %button.btn.btn-wishlist{:title => "Wishlist", :type => "button"}
+              %i.fa.fa-heart
+            %button.btn.btn-compare{:title => "Compare", :type => "button"}
+              %i.fa.fa-bar-chart-o
+            %button.btn.btn-bag{:type => "button"}
+              Add to bag
+              %i.fa.fa-shopping-bag
+      / Bestsellers Links Ends
+    / Sidebar Ends
+/ Main Container Ends

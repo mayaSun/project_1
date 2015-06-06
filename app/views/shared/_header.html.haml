@@ -1,0 +1,114 @@
+%header#header-area
+  / Header Top Starts
+  .header-top
+    .container
+      / Header Links Starts
+      .col-sm-3.col-md-2
+        - if logged_in? && current_user_admin?
+          = link_to 'Administration', admin_orders_path, class: 'btn shopping-bag-checkout-btn'          
+      .col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-1.col-xs-12
+        .header-links
+          %ul.nav.navbar-nav.pull-right
+            %li
+              = link_to root_path do
+                %i.fa.fa-home{:title => "Home"}
+                %span.hidden-sm.hidden-xs
+                  Home
+            %li{:class => nav_active(wishlist_path)}
+              = link_to wishlist_path do
+                %i.fa.fa-heart{:title => "Wish List"}
+                %span.hidden-sm.hidden-xs
+                  Wish List(#{wishlist_count})
+            %li{:class => nav_active(checkout_path)}
+              = link_to checkout_path do
+                %i.fa.fa-check{:title => "Checkout"}
+                %span.hidden-sm.hidden-xs
+                  Checkout
+            - if logged_in?       
+              %li{:class => nav_active(my_account_path)}
+                = link_to my_account_path do
+                  %i.fa.fa-user{:title => "My Account"}
+                  %span.hidden-sm.hidden-xs
+                    My Account            
+              %li      
+                = link_to logout_path, method: :delete  do
+                  %i.fa.fa-lock{:title => "Login"}
+                  %span.hidden-sm.hidden-xs
+                    LogOut      
+            - else             
+              %li
+                = link_to sign_up_path, remote: true do
+                  %i.fa.fa-lock{:title => "Sign Up"}
+                  %span.hidden-sm.hidden-xs
+                    Sign Up       
+              %li
+                = link_to login_path, remote: true do
+                  %i.fa.fa-lock{:title => "Login"}
+                  %span.hidden-sm.hidden-xs
+                    Login              
+      / Header Links Ends
+  / Header Top Ends
+  / Starts
+  .container
+    / Main Header Starts
+    .main-header
+      .row
+        / Logo Starts
+        .col-md-9
+          #logo
+            = link_to home_path do
+              %img.img-responsive{:alt => "Cosmic Pendants", :src => "/images/logo.png", :title => "Cosmic Pendants"}/
+        / Logo End
+        / Shopping Bag Starts
+        .col-md-3.col-md-offset-0.col-sm-5.col-sm-offset-7.shopping-bag-block
+          #bag.btn-group.btn-block
+            %button.btn.btn-block.btn-lg.dropdown-toggle.dropdown-toggle-shopping-bag{"data-toggle" => "dropdown", :type => "button"}
+              %img.shopping-bag{:alt => "Shopping Bag", :src => '/images/shopping_bag.png' }
+              Shopping Bag:
+              %span#bag-total #{shopping_bag.count} item(s) - #{display_price(total_bill)}
+              %i.fa.fa-caret-down
+            %ul.dropdown-menu
+              = render 'user_shopping_bag_items/shopping_bag_summary'
+        / Shopping Bag Ends
+    / Main Header Ends
+    / Main Menu Starts
+    %nav#main-menu.navbar{:role => "navigation"}
+      / Nav Header Starts
+      .navbar-header
+        %button.btn.btn-navbar.navbar-toggle{"data-target" => ".navbar-cat-collapse", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle Navigation
+          %i.fa.fa-bars
+      / Nav Header Ends
+      / Navbar Cat collapse Starts
+      .collapse.navbar-collapse.navbar-cat-collapse
+        .row
+          .col-sm-9
+            %ul.nav.navbar-nav
+              - Category.all.each do |category|
+                %li{:class => nav_active(category_path(category))}
+                  = link_to category.name, category_path(category)
+              %li.dropdown
+                %a.dropdown-toggle.dropdown-toggle-sacred-symbols{"data-delay" => "10", "data-hover" => "dropdown", "data-toggle" => "dropdown"}
+                  Sacred Symbols
+                %ul.dropdown-menu{:role => "menu"}
+                  -SacredSymbol.all.each do |sacred_symbol|
+                    = link_to sacred_symbol_path(sacred_symbol), class: (nav_active(sacred_symbol_path(sacred_symbol)) + ' symbol-list-group-item list-group-item') do
+                      %li
+                        .row
+                          .col-sm-3.col-xs-5
+                            %img.symbols-menu-image{:alt => sacred_symbol.name, :src => sacred_symbol.image.small_thumb}/
+                          .col-sm-9.col-xs-7.symbols-menu-text  
+                            = sacred_symbol.name
+            / Search Starts
+          .col-sm-3  
+            #search  
+              = form_tag(search_products_path, method: "get") do            
+                .input-group
+                  = text_field_tag :search_term, params[:search_term], :placeholder => "Search Store",class: "form-control input-lg"  
+                  %span.input-group-btn
+                    = button_tag nil , class: "btn btn-lg" do
+                      %i.fa.fa-search        
+            / Search Ends
+      / Navbar Cat collapse Ends
+    / Main Menu Ends
+  / Ends

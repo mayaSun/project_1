@@ -1,0 +1,35 @@
+- if shopping_bag.empty?
+  %li
+    %p.text-center Your Shopping Bag is empty!
+- else
+  %li
+    %table.table.hbag
+      - shopping_bag.each do |user_shopping_bag_item| 
+        %tr
+          %td.text-center
+            %img.img-responsive{:alt => "image", :src => user_shopping_bag_item.image.small_thumb, :title => "image"}/
+          %td.text-left
+            = link_to user_shopping_bag_item.name, product_path(user_shopping_bag_item.product) 
+          %td.text-left x #{user_shopping_bag_item.qty}
+          %td.text-center #{display_price(user_shopping_bag_item.total_price)}
+  %li
+    %table.table.table-bordered.total
+      %tbody
+        %tr
+          %td.text-right
+            %strong Sub-Total
+          %td.text-left #{display_price(total_bill)}
+        %tr
+          %td.text-right
+            %strong Eco Tax 
+          %td.text-left $4
+        %tr
+          %td.text-right
+            %strong Total
+          %td.text-left #{display_price(total_bill)}
+    %p.text-right.btn-block1
+      = link_to shopping_bag_path do
+        View Bag
+      - if request.path != '/checkout' && request.path != '/payment'
+        = link_to checkout_path, class: 'checkout' do
+          Checkout

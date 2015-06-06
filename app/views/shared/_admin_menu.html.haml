@@ -1,0 +1,54 @@
+.admin-menu
+  .hidden-xs.hidden-sm
+    %h3.side-heading Administration
+    .list-group
+      = link_to admin_orders_path, class: (nav_active(admin_orders_path) + ' list-group-item') do
+        %i.fa.fa-bell{:title => "Orders"}
+        %span
+          Orders
+      = link_to admin_stock_path, class: (nav_active(admin_stock_path) + ' list-group-item') do 
+        %i.fa.fa-flag{:title => "Stock"}
+        %span
+          Stock 
+      = link_to admin_users_path, class: (nav_active(admin_users_path) + ' list-group-item') do
+        %i.fa.fa-user{:title => "Users"}
+        %span
+          Users
+      = link_to 'Products', admin_products_path , class: (nav_active(admin_products_path) + ' list-group-item')      
+      - Category.all.each do |category|
+        = link_to admin_category_path(category), class: (nav_active(admin_category_path(category)) + ' list-group-item')  do
+          %i.fa.fa-chevron-right
+          = category.name
+      = link_to 'Categories', admin_categories_path, class: (nav_active(admin_categories_path) + ' list-group-item')
+      = link_to 'Sacred Symbols', admin_sacred_symbols_path, class: (nav_active(admin_sacred_symbols_path) + ' list-group-item')
+      / Nav Header Starts
+  .visible-xs-block.visible-sm-block    
+    .navbar-header.admin-menu-toggle-button
+      Administrasion Menu
+      %button.btn.btn-navbar.navbar-toggle{"data-target" => ".navbar-admin-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle Navigation
+        %i.fa.fa-bars
+    / Nav Header Ends
+    / Navbar Cat collapse Starts
+    .collapse.navbar-collapse.navbar-admin-collapse
+      .list-group
+        = link_to admin_orders_path, class: (nav_active(admin_orders_path) + ' list-group-item') do
+          %i.fa.fa-bell{:title => "Orders"}
+          %span
+            Orders
+        = link_to admin_stock_path, class: (nav_active(admin_stock_path) + ' list-group-item') do 
+          %i.fa.fa-flag{:title => "Stock"}
+          %span
+            Stock 
+        = link_to admin_users_path, class: (nav_active(admin_users_path) + ' list-group-item') do
+          %i.fa.fa-user{:title => "Users"}
+          %span
+            Users
+        = link_to 'Products', admin_products_path , class: (nav_active(admin_products_path) + ' list-group-item')      
+        - Category.all.each do |category|
+          = link_to admin_category_path(category), class: (nav_active(admin_category_path(category)) + ' list-group-item')  do
+            %i.fa.fa-chevron-right
+            = category.name
+        = link_to 'Categories', admin_categories_path, class: (nav_active(admin_categories_path) + ' list-group-item')
+        = link_to 'Sacred Symbols', admin_sacred_symbols_path, class: ( nav_active(admin_sacred_symbols_path) + ' list-group-item')
+  / Navbar Cat collapse Ends

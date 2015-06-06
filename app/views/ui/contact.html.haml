@@ -1,0 +1,82 @@
+/ Main Container Starts
+#main-container.container
+  / Breadcrumb Starts
+  %ol.breadcrumb
+    %li
+      %a{:href => "index.html"} Home
+    %li.active Contact Us
+  / Breadcrumb Ends
+  / Main Heading Starts
+  %h2.main-heading.text-center
+    Contact Us
+  / Main Heading Ends
+  / Google Map Starts
+  #map-wrapper
+    #map-block
+  / Google Map Ends
+  / Starts
+  .row
+    / Contact Details Starts
+    .col-sm-4
+      .panel.panel-smart
+        .panel-heading
+          %h3.panel-title Contact Details
+        .panel-body
+          %ul.list-unstyled.contact-details
+            %li.clearfix
+              %i.fa.fa-home.pull-left
+              %span.pull-left
+                My Company
+                %br/
+                1247 LB Nagar Road, Hyderabad,
+                %br/
+                Telangana - 500 035
+            %li.clearfix
+              %i.fa.fa-phone.pull-left
+              %span.pull-left
+                91 99887 74455
+                %br/
+                001 123 974 9856
+            %li.clearfix
+              %i.fa.fa-envelope-o.pull-left
+              %span.pull-left
+                info@demolink.com
+                %br/
+                admin@demolink.com
+                %br/
+                support@demolink.com
+    / Contact Details Ends
+    / Contact Form Starts
+    .col-sm-8
+      .panel.panel-smart
+        .panel-heading
+          %h3.panel-title Send us a mail
+        .panel-body
+          %form.form-horizontal{:role => "form"}
+            .form-group
+              %label.col-sm-2.control-label{:for => "name"}
+                Name
+              .col-sm-10
+                %input#name.form-control{:name => "name", :placeholder => "Name", :type => "text"}/
+            .form-group
+              %label.col-sm-2.control-label{:for => "email"}
+                Email
+              .col-sm-10
+                %input#email.form-control{:name => "email", :placeholder => "Email", :type => "email"}/
+            .form-group
+              %label.col-sm-2.control-label{:for => "subject"}
+                Subject
+              .col-sm-10
+                %input#subject.form-control{:name => "subject", :placeholder => "Subject", :type => "text"}/
+            .form-group
+              %label.col-sm-2.control-label{:for => "message"}
+                Message
+              .col-sm-10
+                %textarea#message.form-control{:name => "message", :placeholder => "Message", :rows => "5"}
+            .form-group
+              .col-sm-offset-2.col-sm-10
+                %button.btn.btn-warning.text-uppercase{:type => "submit"}
+                  Submit
+    / Contact Form Ends
+  / Ends
+/ Main Container Ends

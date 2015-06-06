@@ -1,0 +1,10 @@
+.panel.panel-smart
+  .panel-heading
+    %h3.panel-title 
+      = @category.new_record? ? 'Add New Category' : 'Update Category' 
+  .panel-body  
+    = bootstrap_form_for [:admin, @category], layout: :horizontal do |f|
+      = f.text_field :name, label: 'Name:',label_col: "col-sm-2", control_col: "col-sm-3"
+      = f.text_area :description, label: 'Description:',label_col: "col-sm-2", control_col: "col-sm-10", rows: '4'   
+      = f.button class: 'btn btn-add', id: 'category-form-submit' do
+        = @category.new_record? ? 'Add Category' : 'Update Category'

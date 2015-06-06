@@ -1,0 +1,14 @@
+.row
+  / Primary Content Starts
+  .col-md-9
+    .products-list
+      / Product Grid Display Starts
+      .row
+        - @products.each do |product|
+          .col-sm-3.col-xs-6.product-responsive-padding
+            = render 'products/product', :product => product
+      / Product Grid Display Ends
+  / Primary Content Ends
+  .col-md-3
+    = render 'shared/sidebar'
+/ Main Container Ends

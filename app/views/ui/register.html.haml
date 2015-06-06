@@ -1,0 +1,163 @@
+/ Main Container Starts
+#main-container.container
+  / Breadcrumb Starts
+  %ol.breadcrumb
+    %li
+      %a{:href => "index.html"} Home
+    %li.active Register
+  / Breadcrumb Ends
+  / Main Heading Starts
+  %h2.main-heading.text-center
+    Register
+    %br/
+    %span Create New Account
+  / Main Heading Ends
+  / Registration Section Starts
+  %section.registration-area
+    .row
+      .col-sm-6
+        / Registration Block Starts
+        .panel.panel-smart
+          .panel-heading
+            %h3.panel-title Personal Information
+          .panel-body
+            / Registration Form Starts
+            %form.form-horizontal{:role => "form"}
+              / Personal Information Starts
+              .form-group
+                %label.col-sm-3.control-label{:for => "inputFname"} First Name :
+                .col-sm-9
+                  %input#inputFname.form-control{:placeholder => "First Name", :type => "text"}/
+              .form-group
+                %label.col-sm-3.control-label{:for => "inputLname"} Last Name :
+                .col-sm-9
+                  %input#inputLname.form-control{:placeholder => "Last Name", :type => "text"}/
+              .form-group
+                %label.col-sm-3.control-label{:for => "inputEmail"} Email :
+                .col-sm-9
+                  %input#inputEmail.form-control{:placeholder => "Email", :type => "email"}/
+              .form-group
+                %label.col-sm-3.control-label{:for => "inputPhone"} Phone :
+                .col-sm-9
+                  %input#inputPhone.form-control{:placeholder => "Phone", :type => "text"}/
+              .form-group
+                %label.col-sm-3.control-label{:for => "inputFax"} Fax :
+                .col-sm-9
+                  %input#inputFax.form-control{:placeholder => "Fax", :type => "text"}/
+              / Personal Information Ends
+              %h3.panel-heading.inner
+                Delivery Information
+              / Delivery Information Starts
+              .form-group
+                %label.col-sm-3.control-label{:for => "inputCompany"} Company :
+                .col-sm-9
+                  %input#inputCompany.form-control{:placeholder => "Company", :type => "text"}/
+              .form-group
+                %label.col-sm-3.control-label{:for => "inputCompanyId"} Company ID :
+                .col-sm-9
+                  %input#inputCompanyId.form-control{:placeholder => "Company ID", :type => "text"}/
+              .form-group
+                %label.col-sm-3.control-label{:for => "inputAddress1"} Address/1 :
+                .col-sm-9
+                  %input#inputAddress1.form-control{:placeholder => "Address/1", :type => "text"}/
+              .form-group
+                %label.col-sm-3.control-label{:for => "inputAddress2"} Address/2 :
+                .col-sm-9
+                  %input#inputAddress2.form-control{:placeholder => "Address/2", :type => "text"}/
+              .form-group
+                %label.col-sm-3.control-label{:for => "inputCity"} City :
+                .col-sm-9
+                  %input#inputCity.form-control{:placeholder => "City", :type => "text"}/
+              .form-group
+                %label.col-sm-3.control-label{:for => "inputPostCode"} Postal Code :
+                .col-sm-9
+                  %input#inputPostCode.form-control{:placeholder => "Postal Code", :type => "text"}/
+              .form-group
+                %label.col-sm-3.control-label{:for => "inputCountry"} Country :
+                .col-sm-9
+                  %select#inputCountry.form-control
+                    %option - All Countries -
+                    %option India
+                    %option USA
+                    %option UK
+                    %option China
+              .form-group
+                %label.col-sm-3.control-label{:for => "inputRegion"} Region :
+                .col-sm-9
+                  %select#inputRegion.form-control
+                    %option - All Regions -
+              / Delivery Information Ends
+              %h3.panel-heading.inner
+                Password
+              / Password Area Starts
+              .form-group
+                %label.col-sm-3.control-label{:for => "inputPassword"} Password :
+                .col-sm-9
+                  %input#inputPassword.form-control{:placeholder => "Password", :type => "password"}/
+              .form-group
+                %label.col-sm-3.control-label{:for => "inputRePassword"} Re-Password :
+                .col-sm-9
+                  %input#inputRePassword.form-control{:placeholder => "Re-Password", :type => "password"}/
+              .form-group
+                %span.col-sm-3.control-label Newsletter :
+                .col-sm-9
+                  .radio
+                    %label
+                      %input#optionsRadios1{:checked => "checked", :name => "optionsRadios", :type => "radio", :value => "option1"}/
+                      Subscribe
+                  .radio
+                    %label
+                      %input#optionsRadios2{:name => "optionsRadios", :type => "radio", :value => "option1"}/
+                      Unsubscribe
+              .form-group
+                .col-sm-offset-3.col-sm-9
+                  .checkbox
+                    %label
+                      %input{:type => "checkbox"}/
+                      I'v read and agreed on Conditions
+              .form-group
+                .col-sm-offset-3.col-sm-9
+                  %button.btn.btn-warning{:type => "submit"}
+                    Register
+              / Password Area Ends
+            / Registration Form Starts
+        / Registration Block Ends
+      .col-sm-6
+        / Guest Checkout Panel Starts
+        .panel.panel-smart
+          .panel-heading
+            %h3.panel-title
+              Checkout as Guest
+          .panel-body
+            %p
+              Checkout as a guest instead!
+            %button.btn.btn-warning As Guest
+        / Guest Checkout Panel Ends
+        / Conditions Panel Starts
+        .panel.panel-smart
+          .panel-heading
+            %h3.panel-title
+              Conditions
+          .panel-body
+            %p
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including  versions of Lorem Ipsum.
+            %ol
+              %li Lorem ipsum dolor sit amet
+              %li Consectetur adipiscing elit
+              %li Integer molestie lorem at massa
+              %li Facilisis in pretium nisl aliquet
+              %li Nulla volutpat aliquam velit
+              %li Faucibus porta lacus fringilla vel
+              %li Aenean sit amet erat nunc
+              %li Eget porttitor lorem
+            %p
+              HTML Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
+            %p
+              Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque.
+            %p
+              Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi.
+            %p
+              Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.
+        / Conditions Panel Ends
+  / Registration Section Ends
+/ Main Container Ends

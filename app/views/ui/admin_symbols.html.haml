@@ -1,0 +1,45 @@
+.row
+  .col-sm-2.col-xs-12
+    = render 'shared/admin_menu'
+  .col-sm-10.col-xs-12
+    .row 
+      .col-md-9   
+        .panel.panel-smart
+          .panel-heading
+            %h3.panel-title Add New Symbol
+          .panel-body    
+            %form.form-inline{:role => "form"}              
+              .col-sm-6.col-xs-12
+                .admin-product-form-row
+                  .form-group
+                    %label Name
+                    %input.form-control{:placeholder => "Product Name", :type => "text"}/
+                .admin-product-form-row
+                  .form-group
+                    %label Image
+                    %input.form-control(type="file")      
+              .col-sm-6.col-xs-12                                  
+                %label{:for => "admin-product-form-description", :style => "vertical-align:top"} Description
+                %textarea#admin-symbol-form-description{:placeholder => "Add Descriprtion", :rows => "3"}
+              .col-sm-12.col-xs-12  
+                %button.btn.btn-warning{:type => "submit"}
+                  Add
+    .admin-table-title  
+      All Symbols       
+    - 5.times do
+      .product-col
+        .row
+          .col-sm-3
+            %img.img-responsive{:src => "/images/star_of_david.jpg"}
+          .col-sm-9
+            .caption
+            %h4
+              %a{:href => "product-full.html"} Star Of David
+            .description
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.     
+            .bag-button.button-group
+              %button.btn.btn-bag{:type => "button"}
+                Update
+              %button.btn.btn-compare{:type => "button"}
+                Remove
+                %i.fa.fa-remove  

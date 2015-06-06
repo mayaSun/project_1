@@ -1,0 +1,144 @@
+.admin-menu-toggle-button {
+  background: #C9B538;
+  color: black;
+  text-align: center;
+  font-size: 22px;
+  line-height: 50px;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
+  margin-bottom: 10px;
+}
+
+.admin-table-title {
+  border-bottom:1px solid white; /*purple*/
+  font-size:24px;
+  padding-bottom:20px;
+  margin-bottom:30px;
+  color:white;
+}
+
+.admin-product-form-row{
+  padding-bottom:0px;
+}
+
+#admin-product-form-description {
+  width:90%;
+  color:black;
+  background:white;
+}
+
+#admin-symbol-form-description {
+  width:75%;
+  color:black;
+  background: white;
+}
+
+.admin-table{
+  margin-top:30px;
+  background:rgba(25,25,25,0.75); /* black*/
+  color: white;
+}
+  .admin-table thead > tr > td{
+    vertical-align: middle;
+    font-size:15px;
+    color:#C9B538; /*gold*/
+    font-weight:600;
+    border-bottom:none;
+  }
+  .admin-table tbody > tr > td{
+    vertical-align: middle;
+    font-size:16px;
+  }
+  .admin-table tbody > tr > td a:hover{
+    color:#d9cb73; /*bright gold*/
+  }
+.admin-table-image {
+  width: 100px;
+  height: 100px;
+}
+
+.btn-sent {
+  background: #25A921; /* green*/
+  color: black;
+}
+
+.btn-send {
+  background: #ff0000; /* red*/
+  color: black;
+}
+
+/* Product */
+#product-form .form-control{
+  background: white;
+  border:solid #8461B2; /*purple*/
+  border-width:1px 0 1px 1px;
+  color:black;
+}
+      
+.button-group {
+  padding-top:10px;
+}
+
+.btn-add {
+  background:rgba(132,97,178,0.60); /*purple*/
+  color: white;
+}
+
+.btn-add:hover {
+  background:rgba(132,97,178,0.80); /*purple*/
+  color: white;
+}
+
+.btn-remove {
+  color:white;
+  background:rgba(0,0,0,0.6); /* black */
+  margin-right:3px;
+}
+
+.btn-remove:hover {
+  color:white;
+  background:rgba(0,0,0,0.8); /* black */
+}
+
+.btn-update {
+  background: black;
+  color: white;
+}
+
+.btn-update:hover{
+  color:#C9B538; /*gold*/
+}
+
+.order-col {
+  padding:10px 10px 10px;
+  margin-bottom:15px;
+  background:rgba(25,25,25,0.75); /* black*/
+  color: white;
+  border:1px solid white; 
+}
+
+.order-col .input-row {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.order-col .field-name{
+  color:#C9B538;
+  font-size:14px;
+}
+
+.order-col .field{
+  font-size:16px;
+}
+
+/* users */
+.admin-user-role-select {
+  color: black;
+}
+
+/* Category */
+
+.admin-category-product-image {
+  margin-bottom: 7px;
+}

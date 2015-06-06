@@ -1,0 +1,37 @@
+.admin-table-title
+  Stock  
+.row
+  .col-md-10  
+    .table-responsive.admin-table
+      %table.table.table-bordered
+        %thead
+          %tr
+            %td.text-center(width="12%")
+              Image
+            %td.text-center
+              Name 
+            %td.text-center(width="10%")
+              Orders  
+            %td.text-center(width="10%")
+              Last Sell   
+            %td.text-center(width="10%")
+              In Stock    
+            %td.text-center(width="10%")            
+        %tbody
+          - @products.each do |product|
+            =  form_tag  stock_admin_product_path(product), method: :patch do
+              %tr
+                %td.text-center
+                  %img.img-responsive{:alt => "image", :src => product.image.big_thumb, :title => "image"}/
+                %td.text-center
+                  =link_to product.name, product
+                %td.text-center
+                  = product.orders.count
+                %td.text-center
+                  = display_date(product.last_ordered)     
+                %td.text-center
+                  .input-group.btn-block
+                    = number_field_tag 'stock', product.stock, class: 'form-control', min: 0, size: '1'
+                %td.text-center
+                  = submit_tag 'Update Stock', class: 'btn btn-default tool-tip'
+                    

@@ -1,0 +1,40 @@
+/ Shopping Bag Table Starts
+- if @wishlist.empty?
+  %h2.main-heading.text-center
+    Your Wishlist Is Empty..
+- else
+  .row
+    .col-md-10.col-md-offset-1
+      %h2.main-heading.text-center
+        Wishlist
+      .table-responsive.shopping-bag-table
+        %table.table.table-bordered
+          %thead
+            %tr
+              %td.text-center
+                Image
+              %td.text-center
+                Product Details
+              %td.text-center
+                Price
+              %td.text-center
+                Action
+          %tbody
+            - @wishlist.each do |wishlist_item|  
+              %tr
+                %td.text-center
+                  = link_to product_path(wishlist_item.product) do
+                    %img.shopping-bag-table-img{:alt => wishlist_item.name, :src => wishlist_item.image.big_thumb, :title => "Product Name"}/
+                %td.text-center
+                  = link_to wishlist_item.name, product_path(wishlist_item.product)
+                %td.text-center
+                  #{display_price(wishlist_item.price)}
+                %td.text-center
+                  = link_to user_wishlist_item_path(wishlist_item.id, add_to_bag: true), method: :delete, class: 'btn btn-wishlist-adto-bag' do
+                    Add To Bag
+                    %img.shopping-bag{:alt => "Shopping Bag", :src => '/images/shopping_bag_sm.png' }
+                  = link_to user_wishlist_item_path(wishlist_item.id), method: :delete,class: 'btn btn-warning tool-tip' do
+                    %i.fa.fa-times-circle
+        = link_to 'My Shopping Bag', shopping_bag_path, class: 'btn shopping-bag-checkout-btn'    
+    / Shopping Bag Table Ends
+    / Main Container Ends

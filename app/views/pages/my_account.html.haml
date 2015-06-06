@@ -1,0 +1,35 @@
+.information-page-content
+  .row
+    .col-md-3
+      = render 'pages/user_menu'
+    .col-md-9     
+      .panel.panel-smart 
+        = bootstrap_form_for current_user, layout: :horizontal do |f|
+          .row
+            .col-sm-6.col-xs-12
+              .panel-heading
+                %h4.panel-title 
+                  My account details 
+              .panel-body 
+                = f.text_field :name, label: 'User Name:',label_col: "col-sm-4", control_col: "col-sm-6"
+                = f.email_field :email, label: "Email Address:" ,label_col: "col-sm-4", control_col: "col-sm-6"
+                .form-group 
+                  %label.control-label.col-sm-4
+                    *Password
+                  .col-sm-6
+                    = password_field_tag :data_authentication, nil, class: 'form-control'
+                = f.submit 'Update', class: 'btn btn-update'
+            .col-sm-6.col-xs-12   
+              .panel-heading
+                %h4.panel-title 
+                  Reset Password    
+              .panel-body  
+                .form-group 
+                  %label.control-label.col-sm-4
+                    *Old Password:
+                  .col-sm-6
+                    = password_field_tag :password_authentication, nil, class: 'form-control'
+                = f.password_field :password, label:'*New Password:', label_col: "col-sm-4", control_col: "col-sm-6"
+                = f.password_field :password_confirmation, label: "Confirm:", label_col: "col-sm-4", control_col: "col-sm-6" 
+                = f.submit 'Reset Password', class: 'btn btn-update'
+    / My Account Ends

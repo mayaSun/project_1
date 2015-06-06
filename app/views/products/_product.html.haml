@@ -1,0 +1,19 @@
+.product-col
+  .row
+    .col-xs-12
+      = link_to product_path(product) do
+        .image    
+          %img.img-responsive{:alt => "product", :src => product.image}/
+    .col-xs-12.product-details
+      .caption
+        .product-name
+          %h4
+            = link_to product.name, product_path(product) 
+        .price
+          %span.price-new  #{display_price(product.price)}
+        .bag-button.button-group
+          = link_to user_wishlist_items_path(product_id: product.id), method: :post, class: 'btn btn-wishlist' do
+            %i.fa.fa-heart
+          = link_to user_shopping_bag_items_path(product_id: product.id, qty: 1), method: :post, class: 'btn btn-bag' do
+            Add To Bag
+            %img.shopping-bag{:alt => "Shopping Bag", :src => '/images/shopping_bag_sm.png' }

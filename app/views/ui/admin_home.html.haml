@@ -1,0 +1,46 @@
+.row
+  .col-sm-2.col-xs-12
+    = render 'shared/admin_menu'
+  .col-sm-10.col-xs-12 
+    .admin-table-title
+      Orders  
+    .table-responsive.admin-table
+      %table.table.table-bordered
+        %thead
+          %tr
+            %td.text-center
+              Image
+            %td.text-center
+              Product  description
+            %td.text-center
+              Quantity  
+            %td.text-center
+              Payment
+            %td.text-center
+              Shiping Adress 
+            %td.text-center
+              Delivery Detailes
+            %td.text-center
+              
+        %tbody
+          - 7.times do
+            %tr
+              %td.text-center
+                .admin-table-image
+                  %img.img-responsive{:src => "/images/product-images/3.jpg"}
+              %td.text-center
+                %a{:href => "product-full.html"} Simply Organic seeds
+              %td.text-center
+                1
+              %td.text-center
+                %a{:href => "#"}
+                  Aproved
+              %td.text-center
+                En Ayyala 55 Israel
+              %td.text-center
+                %a{:href => "#"}
+                  Rhy65vk  
+              %td.text-center
+                %button.btn.btn-send.tool-tip{:title => "Send", :type => "submit"}
+                  Sent
+    / Shopping Bag Table Ends

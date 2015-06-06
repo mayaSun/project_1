@@ -1,0 +1,55 @@
+/ Slider Section Starts
+.slider
+  #main-carousel.carousel.slide{"data-ride" => "carousel"}
+    / Wrapper For Slides Starts
+    .carousel-inner
+      .item.active
+        %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide1-img.jpg"}/
+      .item
+        %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide2-img.jpg"}/
+      .item
+        %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide3-img.jpg"}/   
+      .item
+        %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide4-img.jpg"}/
+      .item
+        %img.img-responsive{:alt => "Slider", :src => "images/slider-imgs/slide5-img.jpg"}/        
+    / Wrapper For Slides Ends
+    / Controls Starts
+    %a.left.carousel-control{"data-slide" => "prev", :href => "#main-carousel", :role => "button"}
+      %span.glyphicon.glyphicon-chevron-left
+    %a.right.carousel-control{"data-slide" => "next", :href => "#main-carousel", :role => "button"}
+      %span.glyphicon.glyphicon-chevron-right
+/ Slider Section Ends
+/ 3 Column Banners Starts
+%section.products-list
+  / Heading Starts
+  %h2.product-head Pendant With Sacred Symbols
+  %ul.row.list-unstyled
+    - SacredSymbol.all.first(6).each do |sacred_symbol|
+      .col-sm-2.col-xs-4  
+        = link_to sacred_symbol_path(sacred_symbol) do
+          .image.home-sacred-symbol-image
+            %img.img-responsive{:alt => "banners", :src => sacred_symbol.image}/
+/ 3 Column Banners Ends
+/ New Products Starts
+%section.products-list
+  / Heading Starts
+  %h2.product-head New Products
+  / Heading Ends
+  / New Products Row Starts
+  .row
+    - @new_products.each do |product|
+      .col-md-5ths.col-sm-3.col-xs-6.product-responsive-padding
+        = render 'products/product', :product => product 
+/ New Products Ends
+/ Best sellers Starts
+%section.products-list
+  / Heading Starts
+  %h2.product-head Specials
+  / Heading Ends
+  / Best sellers Row Starts
+  .row
+    - @best_sellers.each do |product|
+      .col-md-5ths.col-sm-3.col-xs-6.product-responsive-padding
+        = render 'products/product', :product => product 
+/ Best sellers Ends

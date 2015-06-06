@@ -1,0 +1,43 @@
+.row
+  .col-sm-2.col-xs-12
+    = render 'shared/admin_menu'
+  .col-sm-10.col-xs-12 
+    .admin-table-title
+      Users  
+    .table-responsive.admin-table
+      %table.table.table-bordered
+        %thead
+          %tr
+            %td.text-center
+              Name
+            %td.text-center
+              Email
+            %td.text-center
+              Updated at
+            %td.text-center
+              Orders
+            %td.text-center
+              Role 
+            %td.text-center            
+        %tbody
+          - 7.times do
+            %tr
+              %td.text-center
+                %a{:href => "#"}
+                  Maya sandovsky
+              %td.text-center
+                mayasandovsky@gmail.com
+              %td.text-center
+                29/1/2015
+              %td.text-center
+                %a{:href => "#"}
+                  Maya's Orders
+              %td.text-center
+                %select.form-control(name="")
+                  %option(value="5") Admin
+                  %option(value="4") Wholesale
+                  %option(value="4") Regular
+              %td.text-center
+                %button.btn.btn-default.tool-tip{:title => "Send", :type => "submit"}
+                  Update
+             

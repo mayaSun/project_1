@@ -1,0 +1,58 @@
+/ Shopping Bag Table Starts
+- if shopping_bag.empty?
+  %h2.main-heading.text-center
+    Your Shopping Bag Is Empty..
+- else
+  .row
+    .col-md-10.col-md-offset-1
+      %h2.main-heading.text-center
+        Shopping Bag
+      .table-responsive.shopping-bag-table
+        %table.table.table-bordered
+          %thead
+            %tr
+              %td.text-center
+                Image
+              %td.text-center
+                Product Details
+              %td.text-center
+                Quantity
+              %td.text-center
+                Price
+              %td.text-center
+                Total
+              %td.text-center
+                Action
+          %tbody
+            - shopping_bag.each do |shopping_bag_item|
+              = form_tag user_shopping_bag_item_path(shopping_bag_item.id) , method: :patch do    
+                %tr
+                  %td.text-center
+                    = link_to product_path(shopping_bag_item.product) do
+                      %img.shopping-bag-table-img{:alt => shopping_bag_item.name, :src => shopping_bag_item.image.big_thumb, :title => "Product Name"}/
+                  %td.text-center
+                    = link_to shopping_bag_item.name, product_path(shopping_bag_item.product)
+                  %td.text-center
+                    .input-group.btn-block
+                      .row
+                        .col-sm-6.col-xs-12
+                          = number_field_tag 'qty', shopping_bag_item.qty, class: 'form-control', min: 1, size: '1'
+                        .col-sm-6.col-xs-12 
+                          = button_tag nil, class: 'btn btn-update tool-tip'do
+                            %i.fa.fa-refresh
+                  %td.text-center
+                    #{display_price(shopping_bag_item.price)}
+                  %td.text-center
+                    #{display_price(shopping_bag_item.total_price)}
+                  %td.text-center
+                    = link_to user_shopping_bag_item_path(shopping_bag_item.id), method: :delete,class: 'btn btn-warning tool-tip' do
+                      %i.fa.fa-times-circle
+          %tfoot
+            %tr
+              %td.text-right{:colspan => "4"}
+                %strong Total :
+              %td.text-left{:colspan => "2"}
+                #{display_price(total_bill)}
+        = link_to 'Checkout', checkout_path, class: 'btn shopping-bag-checkout-btn'    
+    / Shopping Bag Table Ends
+    / Main Container Ends

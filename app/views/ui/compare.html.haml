@@ -1,0 +1,62 @@
+/ Main Container Starts
+#main-container.container
+  / Breadcrumb Starts
+  %ol.breadcrumb
+    %li
+      %a{:href => "index.html"} Home
+    %li.active Compare Products
+  / Breadcrumb Ends
+  / Main Heading Starts
+  %h2.main-heading.text-center
+    Compare Products
+  / Main Heading Ends
+  / Compare Table Starts
+  .table-responsive.compare-table
+    %table.table.table-bordered
+      %thead
+        %tr
+          %td S.NO
+          %td Image
+          %td Product
+          %td Price
+          %td Symbol
+          %td Availability
+      %tbody
+        %tr
+          %td 1
+          %td
+            %img.shopping-bag-table-img{:alt => "image", :src => "/images/product-images/3.jpg", :title => "image"}/
+          %td.name
+            %a{:href => "product.html"} Simply Organic seeds
+          %td
+            $120.68
+          %td
+            product 11
+          %td
+            %span.label.label-success In Stock
+        %tr
+          %td 2
+          %td
+            %img.shopping-bag-table-img{:alt => "image", :src => "/images/product-images/2.jpg", :title => "image"}/
+          %td.name
+            %a{:href => "product.html"} Simply Organic seeds
+          %td
+            $220.68
+          %td
+            product 12
+          %td
+            %span.label.label-danger Out of Stock
+        %tr
+          %td 3
+          %td
+            %img.shopping-bag-table-img{:alt => "image", :src => "/images/product-images/1.jpg", :title => "image"}/
+          %td.name
+            %a{:href => "product.html"} Simply Organic seeds
+          %td
+            $320.68
+          %td
+            product 13
+          %td
+            %span.label.label-success In Stock
+  / Compare Table Ends
+/ Main Container Ends

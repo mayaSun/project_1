@@ -1,0 +1,25 @@
+.row
+  / Primary Content Starts
+  .col-md-9
+    %h2.main-heading2
+      = @sacred_symbol.name
+    .row.cat-intro
+      .col-sm-3
+        .image
+          %img.img-responsive{:alt => "sacred symbol", :src => @sacred_symbol.image}/
+      .col-sm-9.cat-body
+        = @sacred_symbol.description   
+    .products-list
+      %h2.product-head
+        #{@sacred_symbol.name} Jewlery
+      / Product Filter Ends
+      / Product Grid Display Starts
+      .row
+        - @products.each do |product|
+          .col-sm-3.col-xs-6.product-responsive-padding
+            = render 'products/product', :product => product                 
+    / Product Filter Starts
+  / Primary Content Ends
+  .col-md-3
+    = render 'shared/sidebar'
+/ Main Container Ends

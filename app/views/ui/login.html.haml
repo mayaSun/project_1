@@ -1,0 +1,59 @@
+/ Main Container Starts
+#main-container.container
+  / Breadcrumb Starts
+  %ol.breadcrumb
+    %li
+      %a{:href => "index.html"} Home
+    %li.active Register
+  / Breadcrumb Ends
+  / Main Heading Starts
+  %h2.main-heading.text-center
+    Login or create new account
+  / Main Heading Ends
+  / Login Form Section Starts
+  %section.login-area
+    .row
+      .col-sm-6
+        / Login Panel Starts
+        .panel.panel-smart
+          .panel-heading
+            %h3.panel-title Login
+          .panel-body
+            %p
+              Please login using your existing account
+            / Login Form Starts
+            %form.form-inline{:role => "form"}
+              .form-group
+                %label.sr-only{:for => "exampleInputEmail2"} Username
+                %input#exampleInputEmail2.form-control{:placeholder => "Username", :type => "text"}/
+              .form-group
+                %label.sr-only{:for => "exampleInputPassword2"} Password
+                %input#exampleInputPassword2.form-control{:placeholder => "Password", :type => "password"}/
+              %button.btn.btn-warning{:type => "submit"}
+                Login
+            / Login Form Ends
+        / Login Panel Ends
+      .col-sm-6
+        / Account Panel Starts
+        .panel.panel-smart
+          .panel-heading
+            %h3.panel-title
+              Create new account
+          .panel-body
+            %p
+              Registration allows you to avoid filling in billing and shipping forms every time you checkout on this website
+            %a.btn.btn-warning{:href => "register.html"}
+              Register
+        / Account Panel Ends
+        / Guest Checkout Panel Starts
+        .panel.panel-smart
+          .panel-heading
+            %h3.panel-title
+              Checkout as Guest
+          .panel-body
+            %p
+              Checkout as a guest instead!
+            %button.btn.btn-warning As Guest
+        / Guest Checkout Panel Ends
+  / Login Form Section Ends
+/ Main Container Ends

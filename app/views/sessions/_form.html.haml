@@ -1,0 +1,16 @@
+.modal-dialog
+  .modal-content
+    .modal-body
+      .panel.panel-smart
+        .panel-heading
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+          %h3.panel-title 
+            Sign in 
+        .panel-body 
+          = render 'shared/messages' 
+          = bootstrap_form_tag url:'/login', remote: true, layout: :horizontal do |f|
+            = f.email_field :email, label: "Email Address:" ,label_col: "col-sm-4", control_col: "col-sm-6"
+            = f.password_field :password, label:'Password:', label_col: "col-sm-4", control_col: "col-sm-6"
+            = token_tag
+            = f.submit 'Sign In', class: 'btn btn-update' , remote: true

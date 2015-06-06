@@ -1,0 +1,14 @@
+.navbar-header.pages-menu-toggle-button
+  .visible-xs-block
+    More Information
+  %button.btn.btn-navbar.navbar-toggle{"data-target" => ".navbar-information-collapse", "data-toggle" => "collapse", :type => "button"}
+    %span.sr-only Toggle Navigation
+    %i.fa.fa-bars
+  / Nav Header Ends
+  / Navbar Cat collapse Starts
+.collapse.navbar-collapse.navbar-information-collapse
+  .list-group
+    = link_to 'About Us', about_us_path, class: (nav_active(about_us_path) + ' list-group-item')
+    = link_to 'Terms & Conditions', terms_and_conditions_path, class: (nav_active(terms_and_conditions_path) + ' list-group-item')
+    = link_to 'Delivery Information', delivery_information_path, class: (nav_active(delivery_information_path) + ' list-group-item')
+    = link_to 'Privacy Policy', privacy_policy_path, class: (nav_active(privacy_policy_path) + ' list-group-item')

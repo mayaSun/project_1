@@ -1,0 +1,260 @@
+/ Main Container Starts
+#main-container.container
+  / Breadcrumb Starts
+  %ol.breadcrumb
+    %li
+      %a{:href => "index.html"} Home
+    %li
+      %a{:href => "category-grid.html"} Category
+    %li.active Product
+  / Breadcrumb Ends
+  / Product Info Starts
+  .row.product-info.full
+    / Left Starts
+    .col-sm-4.images-block
+      %a{:href => "images/product-images/big-pimg1.jpg"}
+        %img.img-responsive.thumbnail{:alt => "Image", :src => "/images/product-images/3.jpg"}/
+    / Left Ends
+    / Right Starts
+    .col-sm-8.product-details
+      .panel-smart
+        / Product Name Starts
+        %h2 Simply Organic seeds
+        / Product Name Ends
+        %hr/
+        / Manufacturer Starts
+        %ul.list-unstyled.manufacturer
+          %li
+            %span Brand:
+            Indian spices
+          %li
+            %span Symbol:
+            Star Of David
+          %li
+            %span Availability:
+            %strong.label.label-danger Out Of Stock
+        / Manufacturer Ends
+        %hr/
+        / Price Starts
+        .price
+          %span.price-head Price :
+          %span.price-new $199.50
+        / Price Ends
+        %hr/
+        / Available Options Starts
+        .options
+          %h3 Available Options
+          .form-group
+            %label.control-label.text-uppercase{:for => "select"} Select:
+            %select#select.form-control{:name => "select"}
+              %option{:selected => "selected", :value => "1"} Select
+              %option{:value => "2"} Option 1
+              %option{:value => "3"} Option 1
+          .form-group
+            %label.control-label.text-uppercase Radio:
+            .radio
+              %label
+                %input#optionsRadios1{:checked => "checked", :name => "optionsRadios", :type => "radio", :value => "option1"}/
+                Option one is this and that—be sure to include why it's great
+            .radio
+              %label
+                %input#optionsRadios2{:name => "optionsRadios", :type => "radio", :value => "option2"}/
+                Option two can be something else and selecting it will deselect option one
+          .form-group
+            %label.control-label.text-uppercase Checkbox:
+            .checkbox
+              %label
+                %input{:type => "checkbox", :value => ""}/
+                Option one is this and that—be sure to include why it's great
+            .checkbox
+              %label
+                %input{:checked => "checked", :type => "checkbox", :value => ""}/
+                Option two is checked
+          .form-group
+            %label.control-label.text-uppercase{:for => "input-quantity"} Qty:
+            %input#input-quantity.form-control{:name => "quantity", :size => "2", :type => "text", :value => "1"}/
+          .bag-button.button-group
+            %button.btn.btn-wishlist{:title => "Wishlist", :type => "button"}
+              %i.fa.fa-heart
+            %button.btn.btn-compare{:title => "Compare", :type => "button"}
+              %i.fa.fa-bar-chart-o
+            %button.btn.btn-bag{:type => "button"}
+              Add to bag
+              %i.fa.fa-shopping-bag
+        / Available Options Ends
+    / Right Ends
+  / Product Info Ends
+  / Tabs Starts
+  .tabs-panel.panel-smart
+    / Nav Tabs Starts
+    %ul.nav.nav-tabs
+      %li.active
+        %a{:href => "#tab-description", "data-toggle" => "tab"} Description
+      %li
+        %a{:href => "#tab-symbol", "data-toggle" => "tab"} Symbols
+      %li
+        %a{:href => "#tab-ainfo", "data-toggle" => "tab"} Additional Information
+      %li
+        %a{:href => "#tab-review", "data-toggle" => "tab"} Review
+    / Nav Tabs Ends
+    / Tab Content Starts
+    .tab-content.clearfix
+      / Description Starts
+      #tab-description.tab-pane.active
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        %p
+          It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      / Description Ends
+      / Specification Starts
+      #tab-specification.tab-pane
+        %table.table.table-bordered
+          %thead
+            %tr
+              %td{:colspan => "2"}
+                %strong Name
+          %tbody
+            %tr
+              %td Name
+              %td Attribute Symbol
+        %table.table.table-bordered
+          %thead
+            %tr
+              %td{:colspan => "2"}
+                %strong Name
+          %tbody
+            %tr
+              %td Name
+              %td Attribute Symbol
+      / Specification Ends
+      / Additional Information Starts
+      #tab-ainfo.tab-pane
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      / Additional Information Ends
+      / Review Starts
+      #tab-review.tab-pane
+        %form.form-horizontal
+          .form-group.required
+            %label.col-sm-2.control-label{:for => "input-name"} Name
+            .col-sm-10
+              %input#input-name.form-control{:name => "name", :type => "text", :value => ""}/
+          .form-group.required
+            %label.col-sm-2.control-label{:for => "input-review"} Review
+            .col-sm-10
+              %textarea#input-review.form-control{:name => "text", :rows => "5"}
+              .help-block
+                Some note goes here..
+          .form-group.required
+            %label.col-sm-2.control-label.ratings Ratings
+            .col-sm-10
+              Bad 
+              %input{:name => "rating", :type => "radio", :value => "1"}/
+              \ 
+              %input{:name => "rating", :type => "radio", :value => "2"}/
+              \ 
+              %input{:name => "rating", :type => "radio", :value => "3"}/
+              \ 
+              %input{:name => "rating", :type => "radio", :value => "4"}/
+              \ 
+              %input{:name => "rating", :type => "radio", :value => "5"}/
+              \ Good
+          .buttons
+            .col-sm-offset-2.col-sm-10
+              %button#button-review.btn.btn-warning{:type => "button"}
+                Submit
+      / Review Ends
+    / Tab Content Ends
+  / Tabs Ends
+  / Related Products Starts
+  .product-info-box
+    %h4.heading Related Products
+    / Products Row Starts
+    .row
+      / Product #1 Starts
+      .col-md-3.col-sm-6
+        .product-col
+          .image
+            %img.img-responsive{:alt => "product", :src => "/images/product-images/1.jpg"}/
+          .caption
+            %h4
+              %a{:href => "product.html"} Simply Organic Seeds
+            .description
+              We are so lucky living in such a wonderful time. Our almost unlimited ...
+            .price
+              %span.price-new $199.50
+            .bag-button.button-group
+              %button.btn.btn-wishlist{:title => "Wishlist", :type => "button"}
+                %i.fa.fa-heart
+              %button.btn.btn-compare{:title => "Compare", :type => "button"}
+                %i.fa.fa-bar-chart-o
+              %button.btn.btn-bag{:type => "button"}
+                Add to bag
+                %i.fa.fa-shopping-bag
+      / Product #1 Ends
+      / Product #2 Starts
+      .col-md-3.col-sm-6
+        .product-col
+          .image
+            %img.img-responsive{:alt => "product", :src => "/images/product-images/2.jpg"}/
+          .caption
+            %h4
+              %a{:href => "product.html"} Simply Organic Seeds
+            .description
+              We are so lucky living in such a wonderful time. Our almost unlimited ...
+            .price
+              %span.price-new $199.50
+            .bag-button.button-group
+              %button.btn.btn-wishlist{:title => "Wishlist", :type => "button"}
+                %i.fa.fa-heart
+              %button.btn.btn-compare{:title => "Compare", :type => "button"}
+                %i.fa.fa-bar-chart-o
+              %button.btn.btn-bag{:type => "button"}
+                Add to bag
+                %i.fa.fa-shopping-bag
+      / Product #2 Ends
+      / Product #3 Starts
+      .col-md-3.col-sm-6
+        .product-col
+          .image
+            %img.img-responsive{:alt => "product", :src => "/images/product-images/3.jpg"}/
+          .caption
+            %h4
+              %a{:href => "product.html"} Simply Organic Seeds
+            .description
+              We are so lucky living in such a wonderful time. Our almost unlimited ...
+            .price
+              %span.price-new $199.50
+            .bag-button.button-group
+              %button.btn.btn-wishlist{:title => "Wishlist", :type => "button"}
+                %i.fa.fa-heart
+              %button.btn.btn-compare{:title => "Compare", :type => "button"}
+                %i.fa.fa-bar-chart-o
+              %button.btn.btn-bag{:type => "button"}
+                Add to bag
+                %i.fa.fa-shopping-bag
+      / Product #3 Ends
+      / Product #4 Starts
+      .col-md-3.col-sm-6
+        .product-col
+          .image
+            %img.img-responsive{:alt => "product", :src => "/images/product-images/4.jpg"}/
+          .caption
+            %h4
+              %a{:href => "product.html"} Simply Organic Seeds
+            .description
+              We are so lucky living in such a wonderful time. Our almost unlimited ...
+            .price
+              %span.price-new $199.50
+            .bag-button.button-group
+              %button.btn.btn-wishlist{:title => "Wishlist", :type => "button"}
+                %i.fa.fa-heart
+              %button.btn.btn-compare{:title => "Compare", :type => "button"}
+                %i.fa.fa-bar-chart-o
+              %button.btn.btn-bag{:type => "button"}
+                Add to bag
+                %i.fa.fa-shopping-bag
+      / Product #4 Ends
+    / Products Row Ends
+  / Related Products Ends
+/ Main Container Ends

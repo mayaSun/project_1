@@ -1,0 +1,122 @@
+%section
+  .row
+    .col-sm-6.col-xs-12
+      .admin-table-title  
+        Customer Details
+      .order-col
+        %ul.list-unstyled
+          %li
+            %span.field-name
+              First Name:
+            %span.field    
+              = @order.first_name 
+          %li
+            %span.field-name
+              Last Name:
+            %span.field    
+              = @order.last_name  
+          %li
+            %span.field-name
+              Address Line1:
+            %span.field    
+              = @order.address_line1
+          %li
+            %span.field-name
+              Address Line2:
+            %span.field    
+              = @order.address_line2
+          %li
+            %span.field-name
+              City:
+            %span.field    
+              = @order.city       
+          %li
+            %span.field-name
+              Country:
+            %span.field    
+              = display_country(@order.country_code)
+          %li
+            %span.field-name
+              State:
+            %span.field    
+              = display_state(@order.country_code, @order.state_code)
+          %li
+            %span.field-name
+              Postal Code:
+            %span.field    
+              = @order.postal_code             
+          %li
+            %span.field-name
+              Phone Number:
+            %span.field    
+              = @order.phone_number
+          %li
+            %span.field-name
+              Email:
+            %span.field    
+              = @order.email
+          - if @order.status == 'paid' 
+            %li
+              .field
+                * The Order was maded at #{display_date(@order.updated_at)} 
+            %li
+              .field   
+                Fill after sending the package:
+            = form_tag  admin_order_path(@order), method: :patch do
+              %li
+                .row.input-row
+                  .col-xs-5
+                    .field-name
+                      Confirmation Number:
+                  .col-xs-5
+                    = number_field_tag  :confirmation_number, nil, class: 'form-control'
+              %li    
+                .row    
+                  .col-xs-5
+                    .field-name
+                      Tracking Number:
+                  .col-xs-5
+                    = number_field_tag :tracking_number, nil, class: 'form-control'                 
+                .row  
+                  .col-xs-2
+                    = submit_tag 'Send', class: 'btn btn-sent tool-tip'
+          - else
+            %li
+              .field
+                * The Order was sent at:  #{display_date(@order.updated_at)}
+            %li
+              %span.field-name
+                Confirmation Number:
+              %span.field
+                = @order.confirmation_number
+            %li     
+              %span.field-name
+                Tracking Number:
+              %span.field
+                = @order.tracking_number        
+    .col-sm-6.col-xs-12
+      .admin-table-title  
+        Order Summary  
+      .table-responsive.admin-table
+        %table.table.table-bordered
+          %thead
+            %tr
+              %td.text-center
+                Image
+              %td.text-center
+                Product
+              %td.text-center
+                Qty
+              %td.text-center
+                Paid
+          %tbody
+            - @order.user_shopping_bag_items.each do |user_shopping_bag_item| 
+              %tr
+                %td.text-center
+                  %img.img-responsive{:alt => "image", :src => user_shopping_bag_item.image.big_thumb, :title => "image"}/
+                %td.text-center
+                  = link_to user_shopping_bag_item.name, product_path(user_shopping_bag_item.product) 
+                %td.text-center 
+                  x #{user_shopping_bag_item.qty}
+                %td.text-center 
+                  #{display_price(user_shopping_bag_item.price)}            

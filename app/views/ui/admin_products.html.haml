@@ -1,0 +1,91 @@
+.row
+  .col-sm-2.col-xs-12
+    = render 'shared/admin_menu'
+  .col-sm-10.col-xs-12
+    .row 
+      .col-md-3
+        #search    
+          .input-group
+            %input.form-control.input-lg{:placeholder => "Search Item", :type => "text"}/
+            %span.input-group-btn
+              %button.btn.btn-lg{:type => "button"}
+                %i.fa.fa-search
+      .col-md-9   
+        .panel.panel-smart
+          .panel-heading
+            %h3.panel-title Add New Product
+          .panel-body
+            #product-form    
+              %form.form-inline{:role => "form"}              
+                .col-sm-6.col-xs-12
+                  .admin-product-form-row
+                    .form-group
+                      %label Name
+                      %input.form-control{:placeholder => "Product Name", :type => "text"}/
+                  .admin-product-form-row
+                    .form-group
+                      %label Image
+                      %input.form-control(type="file")
+                  .admin-product-form-row
+                    .form-group
+                      %label Price In Cents
+                      %input.form-control{:placeholder => "CENTS!!!", :type => "text", :size => "6"}/
+                  .admin-product-form-row
+                    .form-group
+                      %label Currently In Stock
+                      %input.form-control{ :type => "text", :size => "5"}/
+                  .admin-product-form-row
+                    .form-group
+                      %label Category
+                      %select.form-control(name="")
+                        %option(value="5") Paper
+                        %option(value="4") Salt
+                        %option(value="3") Chili
+                  .admin-product-form-row
+                    .form-group
+                      %label Symbols
+                      %select.form-control(name="")
+                        %option(value="5") Star Of David
+                        %option(value="4") Hamsa      
+                .col-sm-6.col-xs-12                                  
+                  %label{:for => "admin-product-form-description", :style => "vertical-align:top"} Description
+                  %textarea#admin-product-form-description{:placeholder => "Add Descriprtion", :rows => "8"}
+                .col-sm-12.col-xs-12  
+                  %button.btn.btn-warning{:type => "submit"}
+                    Add Product
+    .admin-table-title  
+      All Product       
+    - 5.times do
+      .product-col
+        .row
+          .col-sm-3
+            %img.img-responsive{:src => "/images/product-images/3.jpg"}
+          .col-sm-9
+            .caption
+            %h4
+              %a{:href => "product-full.html"} Simply Organic Seeds
+            .row
+              .col-sm-3.col-xs-12
+                %h6
+                  Categoty: Paper  
+              .col-sm-9.col-xs-12
+                %h6
+                  Simbols: Star Of David
+            .description
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            .row
+              .col-sm-3.col-xs-12
+                .price
+                  %span.price-new $199.50
+              .col-sm-3.col-xs-12
+                %h5
+                  250 Items in stock 
+              .col-sm-3.col-xs-12
+                %h5 
+                  Ordered 5643 times       
+            .bag-button.button-group
+              %button.btn.btn-bag{:type => "button"}
+                Update
+              %button.btn.btn-compare{:type => "button"}
+                Remove
+                %i.fa.fa-remove  

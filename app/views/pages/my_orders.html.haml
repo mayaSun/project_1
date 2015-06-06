@@ -1,0 +1,29 @@
+.information-page-content
+  .row
+    .col-md-3
+      = render 'user_menu'
+    .col-md-9  
+      - if logged_in?
+        .table-responsive.admin-table
+          %table.table.table-bordered
+            %thead
+              %tr
+                %td.text-center
+                  Order Date
+                %td.text-center
+                  Amount
+                %td.text-center
+                  Status
+                %td.text-center
+                  
+            %tbody
+              - current_user.orders.each do |order|   
+                %tr
+                  %td.text-center
+                    = display_date(order.created_at)
+                  %td.text-center
+                    = display_price(order.total_bill)
+                  %td.text-center
+                    = order.status
+                  %td.text-center
+                    = link_to 'View Order', order_path(order)

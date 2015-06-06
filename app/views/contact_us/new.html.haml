@@ -1,0 +1,50 @@
+/ Main Heading Starts
+%h2.main-heading.text-center
+  Contact Us
+/ Main Heading Ends
+/ Starts
+.row
+  / Contact Details Starts
+  .col-sm-4
+    .panel.panel-smart
+      .panel-heading
+        %h3.panel-title Contact Details
+      .panel-body
+        %ul.list-unstyled.contact-details
+          %li.clearfix
+            %i.fa.fa-home.pull-left
+            %span.pull-left
+              My Company
+              %br/
+              1247 LB Nagar Road, Hyderabad,
+              %br/
+              Telangana - 500 035
+          %li.clearfix
+            %i.fa.fa-phone.pull-left
+            %span.pull-left
+              91 99887 74455
+              %br/
+              001 123 974 9856
+          %li.clearfix
+            %i.fa.fa-envelope-o.pull-left
+            %span.pull-left
+              info@demolink.com
+              %br/
+              admin@demolink.com
+              %br/
+              support@demolink.com
+  / Contact Details Ends
+  / Contact Form Starts
+  .col-sm-8
+    .panel.panel-smart
+      .panel-heading
+        %h3.panel-title Send us a mail
+      .panel-body
+        = bootstrap_form_tag url:'/contact_us', layout: :horizontal do |f|
+          = f.text_field :name, label: "Name:" ,label_col: "col-sm-2", control_col: "col-sm-10"           
+          = f.email_field :email, label: "Email:" ,label_col: "col-sm-2", control_col: "col-sm-10"    
+          = f.text_field :subject, label: "Subject:" ,label_col: "col-sm-2", control_col: "col-sm-10" 
+          = f.text_area :message, label: "Message:" ,label_col: "col-sm-2", control_col: "col-sm-10", rows: 5
+          .col-sm-offset-2.col-sm-10
+            = f.submit 'Send', class: 'btn btn-update'
+  / Contact Form Ends

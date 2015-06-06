@@ -1,0 +1,59 @@
+%section.registration-area
+  .row
+    .col-sm-8
+      .panel.panel-smart
+        .panel-heading
+          = link_to @order.paypal_url(payment_path) , class: 'payment-type-title'do
+            %i.fa.fa-caret-right
+            Pay with
+            %img{:alt => "PaymentGateway", :src => "/images/paypal-logo.png"}/  
+        .panel-body
+          .payment-type-title
+            %span
+              %i.fa.fa-caret-down
+            %span
+              Pay with a credit card
+          %br
+          %br
+          = form_tag payment_path, id: 'payment', method: :post, layout: :horizontal do
+            %span.payment-errors
+            .row   
+              %label.control-label.col-sm-3(for="credit-card-number") Credit Card Number
+              .col-sm-3
+                %input.form-control#credit-card-number(type="text" data-stripe="number")
+            %br
+            .row
+              .col-sm-3
+                Payment methods
+              .col-sm-9  
+                %ul.pull-left.list-inline
+                  %li
+                    %img{:alt => "PaymentGateway", :src => "/images/payment-icon/cirrus.png"}/
+                  %li
+                    %img{:alt => "PaymentGateway", :src => "/images/payment-icon/visa.png"}/
+                  %li
+                    %img{:alt => "PaymentGateway", :src => "/images/payment-icon/mastercard.png"}/
+                  %li
+                    %img{:alt => "PaymentGateway", :src => "/images/payment-icon/americanexpress.png"}/
+            %br
+            .row
+              %label.control-label.col-sm-3(for="credit-card-cvs") Security Code
+              .col-sm-2
+                %input.form-control#credit-card-cvs(type="text" data-stripe="cvc")
+            %br
+            .row
+              %label.control-label.col-sm-3 Expiration
+              .col-sm-3
+                = select_month(Date.today, {add_month_numbers: true},  class: 'form-control', data: {stripe: "exp-month"})
+              .col-sm-2
+                = select_year(Date.today.year, {start_year: Date.today.year, end_year: Date.today.year + 4}, class: 'form-control', data: {stripe: "exp-year"})   
+            %br
+            %fieldset.actions.control-group.col-sm-offset-2
+              = submit_tag "Submit Payment", class: "btn btn-update"
+    .col-sm-4        
+      #bag.btn-group.btn-block
+        .dropdown-menu{ style: 'display:block;'}
+          = render 'user_shopping_bag_items/shopping_bag_summary' 
+%script(type="text/javascript" src="https://js.stripe.com/v2/")  
+:javascript
+  Stripe.setPublishableKey('#{ENV["STRIPE_PUBLISHABLE_KEY"]}'); 

@@ -1,0 +1,9 @@
+#order_state_code_wrapper
+  - parent_region ||= params[:parent_region]
+  - country = Carmen::Country.coded(parent_region)
+  - if  ['US','CA','AU','BR','IN','RU'].include? parent_region 
+    = subregion_select(:order, :state_code, parent_region)
+  - elsif country.nil?
+    %em Please select a country above
+  - else
+    = text_field(:order, :state_code)

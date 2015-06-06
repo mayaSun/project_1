@@ -1,0 +1,42 @@
+.row
+  .col-sm-2.col-xs-12
+    = render 'shared/admin_menu'
+  .col-sm-10.col-xs-12 
+    .admin-table-title
+      Stock  
+    .row
+      .col-md-10  
+        .table-responsive.admin-table
+          %table.table.table-bordered
+            %thead
+              %tr
+                %td.text-center(width="12%")
+                  Image
+                %td.text-center
+                  Name 
+                %td.text-center(width="10%")
+                  In Stock
+                %td.text-center(width="10%")
+                  Last Sell   
+                %td.text-center(width="10%")
+                  Orders  
+                %td.text-center(width="10%")            
+            %tbody
+              - 7.times do
+                %tr
+                  %td.text-center
+                    .admin-table-image
+                      %img.img-responsive{:src => "/images/product-images/3.jpg"}
+                  %td.text-center
+                    Salad seeds
+                  %td.text-center
+                    .input-group.btn-block
+                      %input.form-control{:name => "quantity", :size => "8", :type => "text", :value => "100"}/
+                  %td.text-center
+                    1/10/2014    
+                  %td.text-center
+                    %a{:href => "#"}
+                      Orders(123)  
+                  %td.text-center
+                    %button.btn.btn-default.tool-tip{:title => "Send", :type => "submit"}
+                      Update Stock

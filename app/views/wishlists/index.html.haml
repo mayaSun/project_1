@@ -1,0 +1,208 @@
+/ Main Heading Starts
+%h2.main-heading.text-center
+  Shopping Bag
+/ Main Heading Ends
+/ Shopping Bag Table Starts
+.table-responsive.shopping-bag-table
+  %table.table.table-bordered
+    %thead
+      %tr
+        %td.text-center
+          Image
+        %td.text-center
+          Product Details
+        %td.text-center
+          Quantity
+        %td.text-center
+          Price
+        %td.text-center
+          Total
+        %td.text-center
+          Action
+    %tbody
+      %tr
+        %td.text-center
+          %a{:href => "product.html"}
+            %img.shopping-bag-table-img{:alt => "Product Name", :src => "/images/product-images/1.jpg", :title => "Product Name"}/
+        %td.text-center
+          %a{:href => "product-full.html"} Simply Organic seeds
+        %td.text-center
+          .input-group.btn-block
+            %input.form-control{:name => "quantity", :size => "1", :type => "text", :value => "1"}/
+        %td.text-center
+          $150.00
+        %td.text-center
+          $150.00
+        %td.text-center
+          %button.btn.btn-warning.tool-tip{:title => "Update", :type => "submit"}
+            %i.fa.fa-refresh
+          %button.btn.btn-warning.tool-tip{:title => "Remove", :type => "button"}
+            %i.fa.fa-times-circle
+      %tr
+        %td.text-center
+          %a{:href => "product.html"}
+            %img.shopping-bag-table-img{:alt => "Product Name", :src => "/images/product-images/2.jpg", :title => "Product Name"}/
+        %td.text-center
+          %a{:href => "product-full.html"} Simply Organic seeds
+        %td.text-center
+          .input-group.btn-block
+            %input.form-control{:name => "quantity", :size => "1", :type => "text", :value => "1"}/
+        %td.text-center
+          $150.00
+        %td.text-center
+          $150.00
+        %td.text-center
+          %button.btn.btn-warning.tool-tip{:title => "Update", :type => "submit"}
+            %i.fa.fa-refresh
+          %button.btn.btn-warning.tool-tip{:title => "Remove", :type => "button"}
+            %i.fa.fa-times-circle
+    %tfoot
+      %tr
+        %td.text-right{:colspan => "4"}
+          %strong Total :
+        %td.text-left{:colspan => "2"}
+          $300
+/ Shopping Bag Table Ends
+/ Shipping Section Starts
+%section.registration-area
+  .row
+    / Shipping & Shipment Block Starts
+    .col-sm-6
+      / Taxes Block Starts
+      .panel.panel-smart
+        .panel-heading
+          %h3.panel-title
+            Shipping & Taxes
+        .panel-body
+          / Form Starts
+          %form.form-horizontal{:role => "form"}
+            .form-group
+              %label.col-sm-3.control-label{:for => "inputCountry"} Country :
+              .col-sm-9
+                %select#inputCountry.form-control
+                  %option - All Countries -
+                  %option India
+                  %option USA
+                  %option UK
+                  %option China
+            .form-group
+              %label.col-sm-3.control-label{:for => "inputRegion"} Region :
+              .col-sm-9
+                %select#inputRegion.form-control
+                  %option - All Regions -
+            .form-group
+              %label.col-sm-3.control-label{:for => "inputZipCode"} Zip Code :
+              .col-sm-9
+                %input#inputZipCode.form-control{:placeholder => "Zip Code", :type => "text"}/
+            .form-group
+              .col-sm-offset-3.col-sm-9
+                %button.btn.btn-default{:type => "submit"}
+                  Get Info
+          / Form Ends
+      / Taxes Block Ends
+      / Shipment Information Block Starts
+      .panel.panel-smart
+        .panel-heading
+          %h3.panel-title
+            Shipment Information
+        .panel-body
+          / Form Starts
+          %form.form-horizontal{:role => "form"}
+            .form-group
+              %label.col-sm-3.control-label{:for => "inputFname"} First Name :
+              .col-sm-9
+                %input#inputFname.form-control{:placeholder => "First Name", :type => "text"}/
+            .form-group
+              %label.col-sm-3.control-label{:for => "inputLname"} Last Name :
+              .col-sm-9
+                %input#inputLname.form-control{:placeholder => "Last Name", :type => "text"}/
+            .form-group
+              %label.col-sm-3.control-label{:for => "inputEmail"} Email :
+              .col-sm-9
+                %input#inputEmail.form-control{:placeholder => "Email", :type => "email"}/
+            .form-group
+              %label.col-sm-3.control-label{:for => "inputPhone"} Phone :
+              .col-sm-9
+                %input#inputPhone.form-control{:placeholder => "Phone", :type => "text"}/
+            .form-group
+              %label.col-sm-3.control-label{:for => "inputAddress1"} Address/1 :
+              .col-sm-9
+                %input#inputAddress1.form-control{:placeholder => "Address/1", :type => "text"}/
+            .form-group
+              %label.col-sm-3.control-label{:for => "inputAddress2"} Address/2 :
+              .col-sm-9
+                %input#inputAddress2.form-control{:placeholder => "Address/2", :type => "text"}/
+            .form-group
+              %label.col-sm-3.control-label{:for => "inputCity"} City :
+              .col-sm-9
+                %input#inputCity.form-control{:placeholder => "City", :type => "text"}/
+            .form-group
+              %label.col-sm-3.control-label{:for => "inputPostCode"} Postal Code :
+              .col-sm-9
+                %input#inputPostCode.form-control{:placeholder => "Postal Code", :type => "text"}/
+            .form-group
+              %label.col-sm-3.control-label{:for => "inputCountry"} Country :
+              .col-sm-9
+                %select#inputCountry1.form-control
+                  %option - All Countries -
+                  %option India
+                  %option USA
+                  %option UK
+                  %option China
+            .form-group
+              %label.col-sm-3.control-label{:for => "inputRegion"} Region :
+              .col-sm-9
+                %select#inputRegion1.form-control
+                  %option - All Regions -
+            .form-group
+              .col-sm-offset-3.col-sm-9
+                %button.btn.btn-warning{:type => "submit"}
+                  Submit
+          / Form Ends
+      / Shipment Information Block Ends
+    / Shipping & Shipment Block Ends
+    / Discount & Conditions Blocks Starts
+    .col-sm-6
+      / Conditions Panel Starts
+      .panel.panel-smart
+        .panel-heading
+          %h3.panel-title
+            Terms & Conditions
+        .panel-body
+          %p
+            HTML Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula.
+          %p
+            Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi.
+          %p
+            Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat.
+      / Conditions Panel Ends
+      / Total Panel Starts
+      .panel.panel-smart
+        .panel-heading
+          %h3.panel-title
+            Total
+        .panel-body
+          %dl.dl-horizontal
+            %dt Subtotal :
+            %dd $300.00
+            %dt Payment Fee :
+            %dd $10.00
+            %dt Shipment Fee :
+            %dd $15.00
+            %dt Tax Total :
+            %dd $315.00
+          %hr/
+          %dl.dl-horizontal.total
+            %dt Total :
+            %dd $325.00
+          %hr/
+          .text-uppercase.clearfix
+            %a.btn.btn-default.pull-left{:href => "#"}
+              %span.hidden-xs Continue Shopping
+              %span.visible-xs Continue
+            %a.btn.btn-default.pull-right{:href => "#"}
+              Checkout
+      / Total Panel Ends
+    / Discount & Conditions Blocks Ends
+/ Shipping Section Ends
+/ Main Container Ends

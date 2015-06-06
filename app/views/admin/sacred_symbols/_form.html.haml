@@ -1,0 +1,12 @@
+.panel.panel-smart
+  .panel-heading
+    %h3.panel-title
+      = @sacred_symbol.new_record? ? 'Add New Sacred Symbol' : 'Update Sacred Symbol Details'
+  .panel-body    
+    = bootstrap_form_for [:admin, @sacred_symbol], layout: :horizontal do |f|
+      .admin-product-form-row
+        = f.text_field :name,label: 'Name:', placeholder: 'Sacred Symbol Name', label_col: "col-sm-2", control_col: "col-sm-4"
+      .admin-product-form-row
+        = f.file_field :image, label: 'Picture:',label_col: "col-sm-2", control_col: "col-sm-7"
+      = f.text_area :description, label: 'Description:', label_col: "col-sm-2", control_col: "col-sm-10", rows: '5'  
+      = f.submit @sacred_symbol.new_record? ? 'Add Sacred Symbol' : 'Update Details', class: "btn btn-add" , id: 'sacred_symbol-form-submit'

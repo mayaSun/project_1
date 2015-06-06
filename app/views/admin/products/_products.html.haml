@@ -1,0 +1,45 @@
+- @products.each  do |product|
+  .product-col
+    .row
+      .col-md-2.col-sm-3.col-xs-3
+        .image
+          %img.img-responsive{:src => product.image}
+      .visible-xs-block.col-xs-9
+        %br
+        %h4
+          =link_to product.name   
+      .col-md-10.col-sm-9.col-xs-12
+        %h4.hidden-xs
+          =link_to product.name
+        %table
+          %tr
+            %th Category:
+            %td 
+              = link_to product.category.name, admin_category_path(product.category)
+          %tr
+            %th Price:
+            %td 
+              = display_price(product.price)
+          %tr
+            %th stock:
+            %td 
+              #{product.stock} Items In Stock              
+          %tr
+            %th Simbols:
+            %td 
+              - product.sacred_symbols.each do |sacred_symbol|
+                = link_to sacred_symbol.name , sacred_symbol_path(sacred_symbol)
+                ,
+          %tr
+            %th Description:
+            %td 
+              = product.description     
+          %tr
+            %th Orders:
+            %td 
+              = link_to nil, '5643 orders'             
+        .bag-button.button-group
+          = link_to 'Update',edit_admin_product_path(product), class: 'btn btn-update'
+          = link_to admin_product_path(product), method: :delete, class: 'btn btn-remove' do
+            Delete Product
+            %i.fa.fa-remove 

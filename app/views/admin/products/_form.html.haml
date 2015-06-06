@@ -1,0 +1,27 @@
+.panel.panel-smart
+  .panel-heading
+    %h3.panel-title
+      = @product.new_record? ? 'Add New Product' : 'Update Product Details'
+  .panel-body    
+    = bootstrap_form_for [:admin, @product], layout: :horizontal do |f|
+      .col-sm-6.col-xs-12
+        .admin-product-form-row
+          = f.text_field :name, label: 'Name:', placeholder: 'Product Name', label_col: "col-sm-3", control_col: "col-sm-7"
+        .admin-product-form-row
+          = f.select :category_id,  options_for_select(Category.all.map {|category| [category.name, category.id]}, f.object.category_id),label: 'Category:', label_col: "col-sm-3", control_col: "col-sm-6"
+        .admin-product-form-row
+          = f.file_field :image, label: 'Picture:',label_col: "col-sm-3", control_col: "col-sm-7"
+        .admin-product-form-row
+          .form-group
+            %label.control-label.col-sm-4{:for => "product_price"} Price In &cent:
+            .col-sm-4
+              %input.form-control{:name => 'product[price]', :id => 'product_price', :value => @product.price,:placeholder => "CENTS!!!", :type => "text", :size => "6"}/
+        .admin-product-form-row
+          = f.text_field :stock, label: 'Qty In Stock:',label_col: "col-sm-4", control_col: "col-sm-4"    
+      .col-sm-6.col-xs-12  
+        .admin-product-form-row
+          = f.collection_check_boxes :sacred_symbol_ids,SacredSymbol.all, :id, :name , label: 'Symbols:', inline: true, label_col: "col-sm-3", control_col: "col-sm-9"
+        = f.text_area :description, label: 'Description:', label_col: "col-sm-3", control_col: "col-sm-9", rows: '6'  
+      .col-sm-12.col-xs-12  
+        = f.submit @product.new_record? ? 'Add Product' : 'Update Details', class: "btn btn-add" , id: 'product-form-submit'
+

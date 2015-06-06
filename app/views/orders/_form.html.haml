@@ -1,0 +1,32 @@
+.panel.panel-smart
+  .panel-heading
+    %h3.panel-title Shipping Details
+  .panel-body
+    / Registration Form Starts
+    = bootstrap_form_for @order, url: checkout_path, layout: :horizontal do |f|
+      = f.text_field :first_name, label: '*First Name:', placeholder: 'First Name', label_col: "col-sm-2", control_col: "col-sm-4"
+      = f.text_field :last_name, label:'*Last Name:', placeholder: 'Last Name', label_col: "col-sm-2", control_col: "col-sm-4"
+      = f.text_field :address_line1, label: '*Address:',placeholder: 'Address', label_col: "col-sm-2", control_col: "col-sm-4"
+      = f.text_field :address_line2, label: 'Line 2:', label_col: "col-sm-2", control_col: "col-sm-4"
+      = f.text_field :city, label:'*City:',placeholder: 'City', label_col: "col-sm-2", control_col: "col-sm-4"   
+      .form-group
+        = f.label :country_code, '*Country:', class: 'control-label col-sm-2'
+        .col-sm-4
+          .order-carmen-select-input
+            = f.country_select :country_code, priority: %w(US CA), prompt: 'Please select a country' ,onchange: 'jsFunction()'   
+      .form-group
+        = f.label :state_code, 'State/Province:', class: 'control-label col-sm-2'
+        .col-sm-5
+          .order-carmen-select-input
+            = render partial: 'subregion_select', locals: {parent_region: f.object.country_code}
+      = f.text_field :postal_code, label:'*Postal code:',placeholder: 'Postal code', label_col: "col-sm-2", control_col: "col-sm-4"
+      = f.text_field :phone_number, label:'*Phone:',placeholder: 'Phone number', label_col: "col-sm-2", control_col: "col-sm-4"
+      = f.text_field :email, label:'*E-mail:',placeholder: 'E-mail address', label_col: "col-sm-2", control_col: "col-sm-4"
+    
+      = check_box_tag 'accept_terms_and_conditions'
+      %span
+        I confirm that i have read and agree with the 
+        = link_to 'Terms and Conditions.', terms_and_conditions_orders_path, remote: true, class: 'span-link'
+        %br
+        %br
+      = f.submit 'Submit Payment', class: "btn btn-update"

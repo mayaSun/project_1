@@ -1,0 +1,95 @@
+%footer#footer-area
+  / Footer Links Starts
+  .footer-links
+    / Container Starts
+    .container
+      / Information Links Starts
+      .col-md-2.col-sm-6
+        %h5 Information
+        %ul
+          %li
+            = link_to 'About Us', about_us_path
+          %li
+            = link_to 'Delivery Information', delivery_information_path
+          %li
+            = link_to 'Terms & Conditions', terms_and_conditions_path  
+          %li
+            = link_to 'Privacy Policy', privacy_policy_path
+      / Information Links Ends
+      / My Account Links Starts
+      .col-md-2.col-sm-6
+        %h5 My Account
+        %ul
+          %li
+            = link_to 'My Acount Info', my_account_path
+          %li
+            = link_to 'My Orders', my_orders_path 
+      / My Account Links Ends
+      / Customer Service Links Starts
+      .col-md-2.col-sm-6
+        %h5 Service
+        %ul
+          %li
+            = link_to 'Contact Us', contact_us_path
+          %li
+            %a{:href => "#"} Returns
+          %li
+            %a{:href => "#"} Site Map
+          %li
+            %a{:href => "#"} Affiliates
+          %li
+            %a{:href => "#"} Specials
+      / Customer Service Links Ends
+      / Follow Us Links Starts
+      .col-md-2.col-sm-6
+        %h5 Follow Us
+        %ul
+          %li
+            %a{:href => "#"} Facebook
+          %li
+            %a{:href => "#"} Twitter
+          %li
+            %a{:href => "#"} RSS
+          %li
+            %a{:href => "#"} YouTube
+      / Follow Us Links Ends
+      / Contact Us Starts
+      .col-md-4.col-sm-12.last
+        %h5 Contact Us
+        %ul
+          %li My Company
+          %li
+            1247 LB Nagar Road, Hyderabad, Telangana - 35
+          %li
+            Email:
+            %a{:href => "#"} info@demolink.com
+        %h4.lead
+          Tel:
+          %span 1(234) 567-9842
+      / Contact Us Ends
+    / Container Ends
+  / Footer Links Ends
+  / Copyright Area Starts
+  .copyright
+    / Container Starts
+    .container
+      / Starts
+      %p.pull-left
+        \  2014 Spice Shoppe Stores. Bootstrap Layout All Rights Reserved. Designed By
+        %a{:href => "http://sainathchillapuram.com"} Sainath Chillapuram
+      / Ends
+      / Payment Gateway Links Starts
+      %ul.pull-right.list-inline
+        %li
+          %img{:alt => "PaymentGateway", :src => "/images/payment-icon/cirrus.png"}/
+        %li
+          %img{:alt => "PaymentGateway", :src => "/images/payment-icon/paypal.png"}/
+        %li
+          %img{:alt => "PaymentGateway", :src => "/images/payment-icon/visa.png"}/
+        %li
+          %img{:alt => "PaymentGateway", :src => "/images/payment-icon/mastercard.png"}/
+        %li
+          %img{:alt => "PaymentGateway", :src => "/images/payment-icon/americanexpress.png"}/
+      / Payment Gateway Links Ends
+    / Container Ends
+  / Copyright Area Ends

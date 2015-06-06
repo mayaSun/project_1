@@ -1,0 +1,105 @@
+.row
+  / Primary Content Starts
+  .col-md-9
+    / Product Info Starts
+    .row.product-info.full
+      / Left Starts
+      .col-sm-4.images-block
+        .image
+          %img.img-responsive{:alt => "Image", :src => @product.image }/
+      / Left Ends
+      / Right Starts
+      .col-sm-8.product-details
+        .panel-smart
+          / Product Name Starts
+          %h2   
+            = @product.name
+          / Product Name Ends
+          %hr/
+          / Manufacturer Starts
+          %ul.list-unstyled.manufacturer
+            %li
+              %span Category:
+              = link_to @product.category.name, category_path(@product.category)
+            %li
+              %span Sacred Symbol:
+              - @product.sacred_symbols.each do |sacred_symbol|
+                = link_to sacred_symbol.name, sacred_symbol_path(sacred_symbol)
+            %li
+              %span Availability:
+              - if @product.stock <= 0
+                %strong.label.label-danger Out Of Stock
+              - else
+                %strong.label.label-success In Stock
+          / Manufacturer Ends
+          %hr/
+          / Price Starts
+          .price
+            %span.price-head Price :
+            %span.price-new #{display_price(@product.price)}
+          / Price Ends
+          %hr/
+          / Available Options Starts
+          = form_tag user_shopping_bag_items_path, method: :post do
+            .row 
+              .col-sm-1
+                = label_tag 'qty', 'QTY', class: 'control-label'
+              .col-sm-2  
+                = hidden_field_tag 'product_id', @product.id
+                = number_field_tag 'qty', 1, class: 'form-control', min: 1
+              .col-sm-6 
+                .bag-button.button-group
+                  = button_tag nil, class: 'btn btn-bag' do
+                    Add To Bag
+                    %img.shopping-bag{:alt => "Shopping Bag", :src => '/images/shopping_bag_sm.png' }
+                  = link_to user_wishlist_items_path(product_id: @product.id), method: :post , class: 'btn btn-wishlist'do                    
+                    %i.fa.fa-heart
+
+          / Available Options Ends
+      / Right Ends
+    / Product Info Ends
+    / Tabs Starts
+    .tabs-panel.panel-smart
+      / Nav Tabs Starts
+      %ul.nav.nav-tabs
+        %li.active
+          %a{:href => "#tab-description", "data-toggle" => "tab"} Description
+        %li
+          %a{:href => "#tab-category-description", "data-toggle" => "tab"} #{@product.category.name} 
+        %li
+          %a{:href => "#tab-sacred_symbols", "data-toggle" => "tab"} Sacred Symbols
+      / Nav Tabs Ends
+      / Tab Content Starts
+      .tab-content.clearfix
+        / Description Starts
+        #tab-description.tab-pane.active
+          = @product.description
+        / Description Ends
+        / Category description Starts
+        #tab-category-description.tab-pane
+          %p
+            = @product.category.description
+        / Category Description Ends
+        / Symbol Starts
+        #tab-sacred_symbols.tab-pane
+          - @product.sacred_symbols.each do |sacred_symbol|
+            %h4
+              = sacred_symbol.name
+            = sacred_symbol.description  
+        / Symbol Ends
+      / Tab Content Ends
+    / Tabs Ends
+    / Related Products Starts
+    .products-list
+      %h2.product-head
+        Similar Items
+      / Products Row Starts
+      .row
+        -@related_products.each do |product|
+          .col-sm-3.col-xs-6.product-responsive-padding 
+            = render 'product', :product => product     
+      / Products Row Ends
+    / Related Products Ends
+  .col-md-3
+    = render 'shared/sidebar'  
+  / Main Container Ends

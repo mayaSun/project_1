@@ -1,0 +1,40 @@
+.admin-table-title
+  Users  
+.table-responsive.admin-table
+  %table.table.table-bordered
+    %thead
+      %tr
+        %td.text-center
+          Name
+        %td.text-center
+          Email
+        %td.text-center
+          Updated at
+        %td.text-center
+          Orders
+        %td.text-center{:width => "170px"}
+          Role            
+    %tbody
+      - @users.each do |user|
+        //=  form_tag  admin_user_path(user), method: :patch do
+        %tr
+          %td.text-center
+            = user.name
+          %td.text-center
+            = user.email
+          %td.text-center
+            = display_date(user.updated_at)
+          %td.text-center
+            = link_to orders_admin_user_path(user)  do
+              = user.orders.count
+          %td.text-center    
+            - if shop_owner?(current_user) && !shop_owner?(user)  
+              = form_tag  admin_user_path(user), method: :patch do 
+                .row
+                  .col-xs-8
+                    = select_tag 'role', options_for_select([ "customer", "admin" ], user.role), class: 'admin-user-role-select' 
+                  .col-xs-4
+                    = button_tag nil, class: 'btn btn-update tool-tip'do
+                      %i.fa.fa-refresh
+            - else  
+              = user.role
